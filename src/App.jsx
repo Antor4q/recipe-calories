@@ -15,16 +15,20 @@ function App() {
   const [cook,setCook] = useState([])
   const [cooking,setCooking] = useState([])
  
-
-
   useEffect(()=>{
     fetch('./data.json')
     .then(res => res.json())
     .then(cards => setCards(cards))
   },[])
 
+  const totalCalories = cooking.reduce((sum,obj) =>{
+    return sum + parseInt(obj.calories)
+  },0)
   
-  
+  const totalTime = cooking.reduce((sum,obj) =>{
+    return sum + parseInt(obj.preparing_time)
+  },0)
+ 
   const handleCard = (card) =>{
    
     
@@ -49,7 +53,7 @@ function App() {
   
   
   return (
-    <div className='lg:w-[1600px] w-[350px] mx-auto font-[font-family]'>
+    <div className='lg:w-[1600px] w-[350px] mx-auto font-[font-family] mb-10 lg:mb-14'>
      
       
       <div className='lg:w-[1320px] w-[350px] mx-auto'>
@@ -70,8 +74,8 @@ function App() {
               </div>
               
             </div>
-            <div className='col-span-4 mb-5 rounded-2xl border h-full w-[350px]   lg:w-full '>
-             <div>
+            <div className='col-span-4 mb-5 rounded-2xl  border h-full w-[350px]   lg:w-full '>
+             <div className=''>
              <h3 className='text-[#282828] text-xl lg:text-2xl font-semibold text-center mt-8'>Want to cook:0<span>{cook.length}</span></h3>
              <div className='flex justify-center'>
              <hr className='mt-4 mb-6 w-[300px] '></hr>
@@ -109,14 +113,19 @@ function App() {
                 </thead>
                 <tbody>
                 {
-                cooking.map((cng,idx) => <Cooking key={idx} idx={idx} cooking={cng}></Cooking>)
-              }
+                cooking.map((cng,idx) => <Cooking key={idx} idx={idx} cooking={cng}></Cooking> )
+                }
+
+                
                 </tbody>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th>Total Time =<br></br> {totalTime} minutes</th>
+                  <th>Total Calories =<br></br> {totalCalories} calories</th>
+                </tr>
               </table>
-              <div className='flex justify-end gap-5 p-5  text-[#282828CC] font-medium text-base'>
-                <p>Total Time = </p>
-                <p>Total Calories =</p>
-              </div>
+              
               
               </div>
              
