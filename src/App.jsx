@@ -49,30 +49,30 @@ function App() {
   
   
   return (
-    <div className='w-[1600px] mx-auto font-[font-family]'>
+    <div className='lg:w-[1600px] w-[350px] mx-auto font-[font-family]'>
      
       
-      <div className='w-[1320px] mx-auto'>
+      <div className='lg:w-[1320px] w-[350px] mx-auto'>
       <Navbar></Navbar>
       <Banner></Banner>
         <div className='mt-[100px]'>
           <div className='text-center'>
-          <h3 className='text-[40px] text-[#150B2B] font-semibold mb-5'>Our Recipes</h3>
-          <p className='text-[#150B2B99] text-[18px]'>Explore delicious meals with Our Recipes – your go-to source for tasty<br></br> dishes and culinary inspiration. Start cooking today!</p>
+          <h3 className='lg:text-[40px] text-2xl text-[#150B2B] font-semibold mb-5'>Our Recipes</h3>
+          <p className='text-[#150B2B99] lg:text-[18px]'>Explore delicious meals with Our Recipes – your go-to source for tasty<br></br> dishes and culinary inspiration. Start cooking today!</p>
           </div>
-          <div className='mt-12 grid grid-cols-10 gap-10'> 
+          <div className='mt-12 grid lg:grid-cols-10 gap-10'> 
            
-            <div className='col-span-6 '>
-              <div className='grid grid-cols-2 gap-10'>
+            <div className='lg:col-span-6 '>
+              <div className='grid lg:grid-cols-2 grid-cols-1 gap-10'>
                 {
                   cards.map((card => <Card key={card.id} card={card} handleCard={handleCard}></Card>))
                 }
               </div>
               
             </div>
-            <div className='col-span-4 rounded-2xl border h-full'>
+            <div className='col-span-4 mb-5 rounded-2xl border h-full w-[350px]   lg:w-full '>
              <div>
-             <h3 className='text-[#282828] text-2xl font-semibold text-center mt-8'>Want to cook:0<span>{cook.length}</span></h3>
+             <h3 className='text-[#282828] text-xl lg:text-2xl font-semibold text-center mt-8'>Want to cook:0<span>{cook.length}</span></h3>
              <div className='flex justify-center'>
              <hr className='mt-4 mb-6 w-[300px] '></hr>
              </div>
@@ -113,7 +113,7 @@ function App() {
               }
                 </tbody>
               </table>
-              <div className='flex justify-end gap-5 p-5 text-[#282828CC] font-medium text-base'>
+              <div className='flex justify-end gap-5 p-5  text-[#282828CC] font-medium text-base'>
                 <p>Total Time = </p>
                 <p>Total Calories =</p>
               </div>

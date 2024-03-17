@@ -8,12 +8,12 @@ const Cook = ({cook,idx,handleCooking}) => {
     return (
         < >
            
-            <tr className="bg-[#28282805] p-5">
+            <tr className="bg-[#28282805] p-3 lg:p-5">
                     <th>{idx+1}</th>
                     <td>{recipe_name}</td>
                     <td>{preparing_time} </td>
                     <td>{calories}</td>
-                    <td><button onClick={()=> handleCooking(cook)}  className="text-[#150B2B] font-medium px-4 py-2 bg-[#0BE58A] rounded-[50px]">Preparing</button></td>
+                    <td><button onClick={()=> handleCooking(cook)}  className="text-[#150B2B] p-1 font-medium lg:px-4 lg:py-2 bg-[#0BE58A] rounded-[50px]">Preparing</button></td>
                 </tr>
                         
         </>

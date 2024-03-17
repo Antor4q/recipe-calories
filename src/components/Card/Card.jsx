@@ -9,7 +9,7 @@ const Card = ({card,handleCard}) => {
     return (
         <div>
            
-            <div className="card  bg-base-100 border">
+            <div className="card  bg-base-100 border w-[350px]">
             <figure className="px-10 pt-10">
                 <img src={recipe_image} alt="Shoes" className="rounded-xl" />
             </figure>
